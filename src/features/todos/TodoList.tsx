@@ -1,21 +1,21 @@
 import React from 'react';
-import { useAppSelector, useAppDispatch } from '../../app/hooks';
 import {
-  toggleTodo,
-  selectTodos,
+  TodoState,
 } from './todosSlice';
 import { Todo } from './Todo';
 
-export function TodoList() {
-  const todos = useAppSelector(selectTodos);
-  const dispatch = useAppDispatch();
+interface TodoListProps {
+  todos: Array<TodoState>;
+  onTodoClick: (id: number) => {};
+}
+export function TodoList({ todos, onTodoClick }: TodoListProps) {
   return (
     <ul>
     {todos.map(todo =>
       <Todo
         key={todo.id}
         {...todo}
-        onClick={() => dispatch(toggleTodo(todo.id))}
+        onClick={() => onTodoClick(todo.id)}
       />
     )}
   </ul>

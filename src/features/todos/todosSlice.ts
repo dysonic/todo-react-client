@@ -78,6 +78,20 @@ export const { addTodo, toggleTodo, switchVisibilityFilter } = todosSlice.action
 // in the slice file. For example: `useSelector((state: RootState) => state.counter.value)`
 export const selectTodos = (state: RootState) => state.todos.todos;
 export const selectVisibilityFilter = (state: RootState) => state.todos.visibilityFilter;
-
+export const selectVisibleTodos = (state: RootState) => {
+  const { todos, visibilityFilter: filter } = state.todos;
+  switch (filter) {
+    case 'SHOW_COMPLETED':
+      return todos.filter(
+        t => t.completed
+      );
+    case 'SHOW_ACTIVE':
+      return todos.filter(
+        t => !t.completed
+      );
+    default:
+      return todos;
+  }
+}
 
 export default todosSlice.reducer;
