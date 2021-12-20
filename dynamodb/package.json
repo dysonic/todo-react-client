@@ -1,0 +1,14 @@
+{
+  "name": "todo-react-dynamodb",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Gareth Dyson",
+  "license": "MIT",
+  "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.44.0"
+  },
+  "type": "module"
+}
