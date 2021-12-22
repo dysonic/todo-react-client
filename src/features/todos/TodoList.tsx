@@ -1,4 +1,6 @@
 import React from 'react';
+import Stack from '@mui/material/Stack';
+import List from '@mui/material/List';
 import {
   TodoState,
 } from './todosSlice';
@@ -10,14 +12,14 @@ interface TodoListProps {
 }
 export function TodoList({ todos, onTodoClick }: TodoListProps) {
   return (
-    <ul>
-    {todos.map(todo =>
-      <Todo
-        key={todo.id}
-        {...todo}
-        onClick={() => onTodoClick(todo.id)}
-      />
-    )}
-  </ul>
+    <List sx={{ my: 1 }}>
+      {todos.map(todo =>
+        <Todo
+          key={todo.id}
+          {...todo}
+          onClick={() => onTodoClick(todo.id)}
+        />
+      )}
+    </List>
   );
 }
