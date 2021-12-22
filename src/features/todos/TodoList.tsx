@@ -1,5 +1,4 @@
 import React from 'react';
-import Stack from '@mui/material/Stack';
 import List from '@mui/material/List';
 import {
   TodoState,
