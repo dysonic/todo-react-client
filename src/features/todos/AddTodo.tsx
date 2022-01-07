@@ -1,4 +1,4 @@
-import React, { useState, ChangeEvent } from 'react';
+import React, { useState, ChangeEvent, KeyboardEvent } from 'react';
 import { useAppDispatch } from '../../app/hooks';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
@@ -17,6 +17,11 @@ export function AddTodo() {
       setText('');
     }
   };
+  const handleKeyPress = (event: KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === 'Enter') {
+      handleClick();
+    }
+  }
 
   return (
     <div style={{
@@ -29,6 +34,9 @@ export function AddTodo() {
         variant="filled"
         value={text}
         onChange={handleChange}
+        autoComplete="off"
+        autoFocus={true}
+        onKeyPress={handleKeyPress}
       />
       <Button
         variant="contained"
