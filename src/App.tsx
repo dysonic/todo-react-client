@@ -1,21 +1,20 @@
-import React from 'react';
+import * as React from 'react';
+import { Outlet } from "react-router-dom";
+import AppBar from './app/components/AppBar';
 import Container from '@mui/material/Container';
-import Typography from '@mui/material/Typography';
-import { AddTodo } from './features/todos/AddTodo';
-import { VisibleTodoList } from './features/todos/VisibleTodoList';
-import { Footer } from './features/todos/Footer';
+
 import './App.css';
 
 function App() {
   return (
     <div className="App">
+      <AppBar>
+        Todo
+      </AppBar>
       <Container maxWidth="sm">
-        <Typography variant="h4" component="h1" gutterBottom mt={2}>
-          Todo list example
-        </Typography>
-        <AddTodo />
-        <VisibleTodoList />
-        <Footer />
+        <main>
+          <Outlet />
+        </main>
       </Container>
     </div>
   );
