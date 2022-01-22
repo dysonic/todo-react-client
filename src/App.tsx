@@ -11,7 +11,7 @@ function App() {
       <AppBar>
         Todo
       </AppBar>
-      <Container maxWidth="sm">
+      <Container maxWidth="sm" sx={{ mt: 4 }}>
         <main>
           <Outlet />
         </main>
